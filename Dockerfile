@@ -9,5 +9,5 @@ COPY src/go.sum .
 RUN go mod download
 # COPY src .
 
-# CMD [ "go", "run", "main.go" ]
+CMD [ "go", "run", "main.go" ]
 # docker build -t mygo .
