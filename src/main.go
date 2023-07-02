@@ -6,7 +6,7 @@ func main() {
 	e := gin.Default()
 	e.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"status": "success!!",
+			"status": "success",
 		})
 	})
 	e.Run(":8000")

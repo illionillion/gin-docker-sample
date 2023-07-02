@@ -1,13 +1,10 @@
-FROM golang:latest
+FROM golang:1.19-alpine
 
-WORKDIR /app
+WORKDIR /go/src
+COPY ./src .
 
-# ファイルをコンテナのルートにコピー
-COPY src/go.mod . 
-COPY src/go.sum .
-# コマンドでmodファイルにあるパッケージをダウンロード
-RUN go mod download
-# COPY src .
+RUN apk upgrade --update && apk --no-cache add git
 
-CMD [ "go", "run", "main.go" ]
-# docker build -t mygo .
+RUN go get -u github.com/cosmtrek/air && go build -o /go/bin/air github.com/cosmtrek/air
+
+CMD ["air", "-c", ".air.toml"]

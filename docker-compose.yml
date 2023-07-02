@@ -7,5 +7,5 @@ services:
     ports:
       - "8080:8000" # ローカルでは8080・コンテナ内では8000
     volumes:
-      - ./src:/app
+      - ./src:/go/src
     tty: true # コンテナを起動したままにする
