@@ -9,5 +9,11 @@ func main() {
 			"status": "success",
 		})
 	})
+	e.GET("/hello", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"status": "success",
+			"message": "hello",
+		})
+	})
 	e.Run(":8000")
 }
